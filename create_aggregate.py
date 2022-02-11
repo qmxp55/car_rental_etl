@@ -49,7 +49,7 @@ def create_topbooking(conn, topbooking):
 
 def query_save_topbookings(conn):
     """
-    Query all rows in the tasks table
+    Perform query on DB ta and save output to TOPBOOKIGS table
     :param conn: the Connection object
     :return:
     """
@@ -68,6 +68,7 @@ def query_save_topbookings(conn):
 
 def main():
 
+    # database filename
     database = r'rentals.db'
 
     sql_create_topbookings_table = """  CREATE TABLE TOPBOOKINGS (
@@ -85,8 +86,10 @@ def main():
 
     if conn is not None:
 
+        # create TOPBOOKIGS table
         create_table(conn, sql_create_topbookings_table)
 
+        # query and save output to TOPBOOKIGS table
         query_save_topbookings(conn)
 
     else:
